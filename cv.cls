@@ -2,7 +2,6 @@
 \ProvidesClass{cv}
 \LoadClass[10pt,a4paper]{article}
 
-\RequirePackage{helvet}
 \RequirePackage[a4paper,%
 ignoreheadfoot,%
 top=2.54cm,%
@@ -22,13 +21,16 @@ headsep=0cm]{geometry}
 \RequirePackage{listings}
 \RequirePackage{color}
 \RequirePackage{etoolbox}
-\RequirePackage[sfdefault,light]{roboto}
 \RequirePackage{enumitem}
+%\RequirePackage{libertine}
+%\RequirePackage{helvet}
+\RequirePackage[sfdefault,light]{roboto}
+%\RequirePackage{newtxsf}
 
 %\RequirePackage{cmbright}
 %\renewcommand*\rmdefault{cmbright}
 %\renewcommand*\sfdefault{lmssq}
-\renewcommand{\familydefault}{\sfdefault} % Set font to sans-serif
+%\renewcommand{\familydefault}{\sfdefault} % Set font to sans-serif
 
 % Force enumerations without indent
 \setlist[itemize]{leftmargin=*}
@@ -40,10 +42,11 @@ headsep=0cm]{geometry}
 \newcommand{\myaddress}{My Address \\ City \\ Country}
 \newcommand{\myphone}{myphone}
 \newcommand{\myemail}{myemail@email.com}
+\newcommand{\myhomepage}{google.com}
 \newcommand{\myphoto}{cphoto}
 \newcommand{\mybirthdateplace}{00/00/0000}
 \newcommand{\addressee}{Test, of Contoso Corporation}
-
+\newcommand{\introtext}{Blab, blab blab blab blab blab}
 %
 % Formatting tweaking
 %
@@ -97,7 +100,8 @@ headsep=0cm]{geometry}
 
 \hspace*{\dimexpr -\tabcolsep -\arrayrulewidth} \begin{tabular}{%
         >{\raggedright}p{\photowidth}%
-        >{\raggedright}p{\dimexpr \columnwidth - \photowidth -\tabcolsep -\arrayrulewidth}%
+        >{\raggedright}p{\dimexpr (\columnwidth - \photowidth -\tabcolsep -\arrayrulewidth)/3}%
+        >{\raggedright}p{\dimexpr ((\columnwidth - \photowidth -\tabcolsep -\tabcolsep -\tabcolsep-\arrayrulewidth -\arrayrulewidth)/30*19)}%
     }
     \imagetop{\includegraphics[width=\photowidth]{\myphoto}} & %
     \imagetop{%
@@ -106,11 +110,14 @@ headsep=0cm]{geometry}
     }
     %~\\*[-21pt]
     %\hrulefill \\
-    \fontsize{\normalfontsize}{\normalfontsize}\selectfont \myaddress \\
-    ~\\
+    \fontsize{\normalfontsize}{\normalfontsize}\selectfont \myhomepage \\
+    \myaddress \\
     \myphone \\
     \myemail \\
     \mybirthdateplace
+    &
+    \vspace{20pt}
+    \introtext
     \tabularnewline
 \end{tabular}\\*[-10pt]
 \fontsize{\normalfontsize}{\normalfontsize}\selectfont
